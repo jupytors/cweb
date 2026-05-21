@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.3);
+            text-align: center;
+        }
+        h1 { color: #1a1a2e; font-size: 2.5em; margin-bottom: 16px; }
+        p { color: #666; font-size: 1.2em; margin-bottom: 24px; }
+        ul { list-style: none; padding: 0; }
+        li { display: inline-block; margin: 0 10px; }
+        a { color: #1a73e8; text-decoration: none; font-size: 1.1em; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Crow Web</h1>
+        <p>C++ Web 框架 Crow + SQLite3 运行成功！</p>
+        <ul>
+            {{#items}}
+            <li><a href="{{url}}">{{name}}</a></li>
+            {{/items}}
+        </ul>
+        {{#show}}
+        <p>Mustache 模板渲染正常！</p>
+        {{/show}}
+    </div>
+</body>
+</html>

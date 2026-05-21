@@ -1,0 +1,17 @@
+# Build artifacts
+build/
+#*.o
+#*.a
+#*.so
+#*.dylib
+main
+
+# Database
+#*.db
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store

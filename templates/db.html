@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.3);
+            text-align: center;
+            min-width: 400px;
+        }
+        h1 { color: #1a1a2e; font-size: 2em; margin-bottom: 24px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background: #667eea; color: white; }
+        tr:nth-child(even) { background: #f5f5f5; }
+        a { color: #1a73e8; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>{{title}}</h1>
+        {{#error}}
+        <p style="color: red;">错误: {{error}}</p>
+        {{/error}}
+        {{^error}}
+        <p>共有 {{count}} 个用户</p>
+        <table>
+            <tr><th>ID</th><th>姓名</th><th>年龄</th></tr>
+            {{#users}}
+            <tr><td>{{id}}</td><td>{{name}}</td><td>{{age}}</td></tr>
+            {{/users}}
+        </table>
+        {{/error}}
+        <p style="margin-top: 24px;"><a href="/">返回首页</a></p>
+    </div>
+</body>
+</html>
