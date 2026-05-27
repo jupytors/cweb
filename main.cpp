@@ -9,7 +9,7 @@ int main()
     crow::mustache::set_global_base(templates_dir);
     std::cout << "=== SQLite 测试 ===" << std::endl;
     try {
-        SQLite::Database db("test.db", SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
+        SQLite::Database db("../test.db", SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
         db.exec("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT, age INTEGER)");
         db.exec("DELETE FROM users");
         db.exec("INSERT INTO users (name, age) VALUES ('Alice', 25)");
@@ -52,7 +52,7 @@ int main()
     CROW_ROUTE(app, "/db")([](){
         crow::json::wvalue ctx;
         try {
-            SQLite::Database db("test.db", SQLite::OPEN_READONLY);
+            SQLite::Database db("../test.db", SQLite::OPEN_READONLY);
             SQLite::Statement query(db, "SELECT id, name, age FROM users");
             crow::json::wvalue::list users;
             while (query.executeStep()) {
